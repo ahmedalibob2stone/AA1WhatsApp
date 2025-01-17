@@ -1,0 +1,43 @@
+# ملفات البيئة الحساسة
+.env
+.keystore
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+firebase_options.dart
+
+# مجلدات البناء
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# iOS-specific files
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/.last_build_id
+ios/Flutter/Generated.xcconfig
+ios/Flutter/Debug.xcconfig
+ios/Flutter/Release.xcconfig
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/project.pbxproj
+ios/Runner.xcodeproj/
+ios/*.xcodeproj/
+
+# Android-specific files
+android/.gradle/
+android/local.properties
+android/app/debug
+android/app/profile
+android/app/release
+
+# IntelliJ/Android Studio
+.idea/
+.idea/workspace.xml
+.idea/libraries/
+
+
+# مخرجات Flutter
+.flutter-plugins-dependencies
+.packages
