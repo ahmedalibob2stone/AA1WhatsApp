@@ -1,5 +1,4 @@
 name: Deploy to Firebase
-# Testing CI/CD Workflow trigger
 
 on:
   push:
