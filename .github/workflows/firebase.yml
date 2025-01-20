@@ -21,7 +21,7 @@ jobs:
         run: npm install -g firebase-tools # حزمة firebase-tools هي المطلوبة هنا
 
       - name: Verify Firebase CLI installation
-        run: firebase --version  # للتحقق من تثبيت firebase-tools
+        run: firebase --version   
 
       - name: Deploy to Firebase
         env:
