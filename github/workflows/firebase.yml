@@ -23,5 +23,5 @@ jobs:
 
       - name: Deploy to Firebase
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_ACCESS_TOKEN }}
-        run: firebase deploy --only firestore,storage
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }} # تأكد من تطابق اسم المتغير
+        run: firebase deploy --only firestore,storage # عدّل هذا حسب الحاجة
