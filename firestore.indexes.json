@@ -2,6 +2,3 @@
   "indexes": [],
   "fieldOverrides": []
 }
-git add firestore.rules
-git commit -m "Add Firestore security rules"
-git push origin main
