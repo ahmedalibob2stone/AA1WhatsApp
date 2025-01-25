@@ -23,8 +23,10 @@ jobs:
       - name: Verify Firebase CLI installation
         run: firebase --version
 
-      - name: Authenticate with Firebase
-        run: echo -n '${{ secrets.FIREBASE_CONFIG }}' > .firebaserc
+      - name: Authenticate with Firebase using Service Account
+        run: |
+          echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > $HOME/firebase-key.json
+          export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-key.json"
 
       - name: Set up Firebase options file
         run: |
@@ -33,5 +35,5 @@ jobs:
 
       - name: Deploy to Firebase
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase deploy --only firestore,storage --token "$FIREBASE_TOKEN"
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/firebase-key.json
+        run: firebase deploy --only firestore,storage --force
