@@ -23,6 +23,9 @@ jobs:
       - name: Verify Firebase CLI installation
         run: firebase --version
 
+      - name: Authenticate with Firebase
+        run: echo -n '${{ secrets.FIREBASE_CONFIG }}' > .firebaserc
+
       - name: Set up Firebase options file
         run: |
           echo "${{ secrets.FIREBASE_OPTIONS_CONTENT }}" > lib/firebase_options.dart
@@ -31,6 +34,4 @@ jobs:
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-        run: firebase deploy --only firestore,storage
-
+        run: firebase deploy --only firestore,storage --token "$FIREBASE_TOKEN"

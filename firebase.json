@@ -1,14 +1,12 @@
 {
+  "projects": {
+    "default": "whatsapp-backend-f1a27"
+  },
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
-  "functions": {
-    "source": "functions"
-  },
   "storage": {
     "rules": "storage.rules"
   }
-
 }
-
