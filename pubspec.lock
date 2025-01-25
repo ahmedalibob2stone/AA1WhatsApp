@@ -29,10 +29,10 @@ packages:
     dependency: "direct main"
     description:
       name: agora_uikit
-      sha256: "39c94e8e33587a93ff07e6838b5c9b99b1ef844613ffb2c9af0a9e568401a51d"
+      sha256: "46400bae8e98fc76cb9eba63f8026fc498f2d477b7ff18453528298a57994432"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.1"
   archive:
     dependency: transitive
     description:
