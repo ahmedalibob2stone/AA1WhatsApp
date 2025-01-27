@@ -13,12 +13,12 @@ packages:
     dependency: transitive
     description:
       name: agora_rtc_engine
-      sha256: "5e7361402a8d6173467b251165bca5ffd0ef256abbe380fe6f2b5042503f83c3"
+      sha256: c1379d78722b3f49f3691c72664b55e094bdf384059125a7bb601bd7217928f6
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.0"
+    version: "5.3.1"
   agora_rtm:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: agora_rtm
       sha256: "033ddf35e89b36cfa71aa0df1c73bbc9a06b54f175b2e202c87bbd12f66ea434"
@@ -29,10 +29,10 @@ packages:
     dependency: "direct main"
     description:
       name: agora_uikit
-      sha256: b640437c4e16adbcd5f94229c8f594219d2f8527fc411ea65972e0bec64355c3
+      sha256: "39c94e8e33587a93ff07e6838b5c9b99b1ef844613ffb2c9af0a9e568401a51d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.0.2"
   archive:
     dependency: transitive
     description:
@@ -720,14 +720,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.18.1"
-  iris_method_channel:
-    dependency: transitive
-    description:
-      name: iris_method_channel
-      sha256: "99143ae77073ee8fd6c19d8f56ec59ba6c332000d8bea46bb9b6a89d83feca5c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.2"
   js:
     dependency: transitive
     description:
@@ -868,18 +860,18 @@ packages:
     dependency: "direct main"
     description:
       name: permission_handler
-      sha256: bc56bfe9d3f44c3c612d8d393bd9b174eb796d706759f9b495ac254e4294baa5
+      sha256: "5749ebeb7ec0c3865ea17e3eb337174b87747be816dab582c551e1aff6f6bbf3"
       url: "https://pub.dev"
     source: hosted
-    version: "10.4.5"
+    version: "9.2.0"
   permission_handler_android:
     dependency: transitive
     description:
       name: permission_handler_android
-      sha256: "59c6322171c29df93a22d150ad95f3aa19ed86542eaec409ab2691b8f35f9a47"
+      sha256: a512e0fa8abcb0659d938ec2df93a70eb1df1fdea5fdc6d79a866bfd858a28fc
       url: "https://pub.dev"
     source: hosted
-    version: "10.3.6"
+    version: "9.0.2+1"
   permission_handler_apple:
     dependency: transitive
     description:
