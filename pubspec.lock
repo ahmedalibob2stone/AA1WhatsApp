@@ -21,10 +21,10 @@ packages:
     dependency: "direct main"
     description:
       name: agora_rtm
-      sha256: "219fdd319e97c91a89f5aa7f838e65b5a5d06d55283548de2fe831c6ef69f9d0"
+      sha256: e70b73d851080577f8b10ab1d2686fafeeb05c8f0b12855d0bd015fe01e22cff
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.6"
+    version: "1.5.5"
   agora_uikit:
     dependency: "direct main"
     description:
