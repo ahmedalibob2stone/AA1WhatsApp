@@ -28,9 +28,8 @@ jobs:
           echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > $HOME/firebase-key.json
           export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-key.json"
 
-      - name: Set up Firebase options file
-        run: |
-          echo "${{ secrets.FIREBASE_OPTIONS }}" > lib/firebase_options.dart
+      - name: Restore Firebase options file
+        run: echo "${{ secrets.FIREBASE_OPTIONS }}" | base64 --decode > lib/firebase_options.dart
         shell: bash
 
       - name: Deploy to Firebase
