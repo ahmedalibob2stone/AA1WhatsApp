@@ -5,6 +5,7 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:AA1WhatsApp/features/auth/screan/ckeck_user.dart';
 import 'package:AA1WhatsApp/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,15 +18,15 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.byType(Image), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Wait for the transition to the next screen
+    await tester.pumpAndSettle(Duration(seconds: 3));  // Wait for 3 seconds for the transition
+
+    // Verify that CheckUser screen is now displayed (replace this with actual widget check for CheckUser)
+    expect(find.byType(CkeckUser), findsOneWidget);
+
   });
 }
