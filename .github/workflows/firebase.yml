@@ -29,9 +29,14 @@ jobs:
           echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > $HOME/firebase-key.json
           export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-key.json"
 
-      - name: Restore Firebase options file
-        run: echo "${{ secrets.FIREBASE_OPTIONS }}" | base64 --decode > lib/firebase_options.dart
-        shell: bash
+      - name: Set up Firebase environment
+          run: |
+            echo "API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $SECRET_KEYS
+            echo "APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> $SECRET_KEYS
+            echo "MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> $SECRET_KEYS
+            echo "PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> $SECRET_KEYS
+            echo "STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> $SECRET_KEYS
+            echo "IOS_BUNDLE_ID=${{ secrets.IOS_BUNDLE_ID }}" >> $SECRET_KEYS
 
       - name: Deploy to Firebase
         env:
