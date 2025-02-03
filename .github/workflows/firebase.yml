@@ -31,12 +31,12 @@ jobs:
 
       - name: Set up Firebase environment
           run: |
-            echo "API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $SECRET_KEYS
-            echo "APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> $SECRET_KEYS
-            echo "MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> $SECRET_KEYS
-            echo "PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> $SECRET_KEYS
-            echo "STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> $SECRET_KEYS
-            echo "IOS_BUNDLE_ID=${{ secrets.IOS_BUNDLE_ID }}" >> $SECRET_KEYS
+            echo "API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .keystore
+            echo "APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> .keystore
+            echo "MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> .keystore
+            echo "PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .keystore
+            echo "STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> .keystore
+            echo "IOS_BUNDLE_ID=${{ secrets.IOS_BUNDLE_ID }}" >> .keystore
 
       - name: Deploy to Firebase
         env:
