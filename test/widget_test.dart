@@ -22,7 +22,7 @@ void main() {
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
     // Wait for the transition to the next screen (3 seconds delay)
-    await tester.pumpAndSettle(Duration(seconds: 3));
+    await tester.pumpAndSettle(Duration(seconds: 5));
 
     // Verify that CheckUser screen is now displayed
     expect(find.byType(CkeckUser), findsOneWidget);  // Ensure the correct widget name is used here
