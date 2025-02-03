@@ -13,20 +13,19 @@ import 'package:flutter_test/flutter_test.dart';
 
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('SplashScreen transitions to CheckUser after delay', (WidgetTester tester) async {
+    // Build the app
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
+    // Verify that the splash screen is showing correctly
     expect(find.byType(Image), findsOneWidget);
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
+    // Wait for the transition to the next screen (3 seconds delay)
+    await tester.pumpAndSettle(Duration(seconds: 3));
 
-    // Wait for the transition to the next screen
-    await tester.pumpAndSettle(Duration(seconds: 3));  // Wait for 3 seconds for the transition
-
-    // Verify that CheckUser screen is now displayed (replace this with actual widget check for CheckUser)
-    expect(find.byType(CkeckUser), findsOneWidget);
-
+    // Verify that CheckUser screen is now displayed
+    expect(find.byType(CkeckUser), findsOneWidget);  // Ensure the correct widget name is used here
   });
+
 }
