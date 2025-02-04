@@ -25,7 +25,8 @@ void main() {
     await tester.pumpAndSettle(Duration(seconds: 5));
 
     // Verify that CheckUser screen is now displayed
-    expect(find.byType(CkeckUser), findsOneWidget);  // Ensure the correct widget name is used here
+    expect(find.byType(CheckUser), findsOneWidget); // صحيح هنا
+ // Ensure the correct widget name is used here
   });
 
 }

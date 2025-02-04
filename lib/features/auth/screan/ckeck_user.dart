@@ -11,7 +11,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 
-class CkeckUser extends ConsumerWidget {
+
+class CheckUser extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userController = ref.read(UserViewModel.notifier);
