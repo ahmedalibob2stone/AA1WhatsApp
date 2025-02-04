@@ -18,37 +18,26 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await dotenv.load(fileName:
-      ".keystore");
+  await dotenv.load(fileName: ".keystore");
 
-
-
-  runApp(const ProviderScope(child:
-
-  MyApp()
-
-  ));
-
-
-
+  runApp(const MyApp()); // ✅ إزالة ProviderScope من هنا
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends StatelessWidget { // ✅ تحويله من ConsumerWidget إلى StatelessWidget
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ChatApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+  Widget build(BuildContext context) {
+    return ProviderScope( // ✅ لف التطبيق بالكامل بـ ProviderScope هنا
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'ChatApp',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        onGenerateRoute: OnGenerateRoutes.route,
+        home: const SplashScreen(),
       ),
-      onGenerateRoute: OnGenerateRoutes.route,
-      home:  SplashScreen()
-
-
     );
   }
 }
