@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // الانتقال إلى الشاشة التالية
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => CkeckUser()), // الشاشة التالية
+        MaterialPageRoute(builder: (context) => CheckUser()), // الشاشة التالية
       );
     });
   }
