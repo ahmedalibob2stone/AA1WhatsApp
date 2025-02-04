@@ -8,6 +8,7 @@
 import 'package:AA1WhatsApp/features/auth/screan/ckeck_user.dart';
 import 'package:AA1WhatsApp/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 
@@ -15,7 +16,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('SplashScreen transitions to CheckUser after delay', (WidgetTester tester) async {
     // Build the app
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
 
     // Verify that the splash screen is showing correctly
     expect(find.byType(Image), findsOneWidget);
