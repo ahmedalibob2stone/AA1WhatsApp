@@ -1,10 +1,7 @@
 # ملفات البيئة الحساسة
-.env
 .keystore
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
-
-firebase_options.b64
 # مجلدات البناء
 build/
 .dart_tool/
