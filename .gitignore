@@ -2,7 +2,7 @@
 .env
 .keystore
 android/app/google-services.json
-
+ios/Runner/GoogleService-Info.plist
 
 firebase_options.b64
 # مجلدات البناء
@@ -11,6 +11,20 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 
+
+# iOS-specific files
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/.last_build_id
+ios/Flutter/Generated.xcconfig
+ios/Flutter/Debug.xcconfig
+ios/Flutter/Release.xcconfig
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+
+
+ios/Runner.xcodeproj/
+ios/*.xcodeproj/
 
 
 # Android-specific files
