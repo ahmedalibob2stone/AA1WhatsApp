@@ -1,0 +1,33 @@
+workflows:
+  my-app-workflow:
+    name: My App Workflow
+    instance_type: mac_mini_m1
+    max_build_duration: 120
+    environment:
+      vars:
+        FLUTTER_VERSION: stable
+      groups:
+        - firebase_credentials
+    scripts:
+      - name: "Pre-build script"
+        script: |
+          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
+          echo $FIREBASE_PROJECT_ID > ios/Runner/firebase_project_id.txt
+          echo $FIREBASE_STORAGE_BUCKET > ios/Runner/FIREBASE_STORAGE_BUCKET.txt
+          echo $IREBASE_MESSAGING_SENDER_ID > ios/Runner/FIREBASE_MESSAGING_SENDER_ID.txt
+          echo $FIREBASE_APP_ID > ios/Runner/FIREBASE_APP_ID.txt
+          echo $BASE_URL > ios/Runner/BASE_URL.txt
+          echo $FIREBASE_API_KEY > ios/Runner/FIREBASE_DATABASE_URL.txt
+          echo $FIREBASE_AUTH_DOMAIN > ios/Runner/FIREBASE_AUTH_DOMAIN.txt
+          echo $FIREBASE_TOKEN > ios/Runner/FIREBASE_TOKEN.txt
+          echo $Ios_BundleId > ios/Runner/Ios_BundleId.txt
+
+
+
+
+
+
+
+    cache:
+      cache_paths:
+        - $HOME/.pub-cache
