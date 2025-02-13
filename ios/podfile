@@ -1,8 +1,9 @@
-workflows:
+
   ios:
     name: iOS Workflow
-    platform: ios
-    trigger:
+    platform: ios, '11.0'
+    target 'Runner' do
+      use_frameworks!  
       events:
         - push
     scripts:
