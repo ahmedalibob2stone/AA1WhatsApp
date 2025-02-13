@@ -1,14 +1,10 @@
-# تحديد منصة iOS والإصدار الأدنى المدعوم
+
 platform :ios, '11.0'
 
-# الهدف هو تطبيق iOS في مشروع Flutter
 target 'Runner' do
-  use_frameworks!  # لتفعيل الدعم للـ Frameworks بدلاً من Static Libraries
+  use_frameworks!
 
-  # يمكن إضافة مكتبات الـ Pods التي يحتاجها التطبيق هنا
-  # مثال: إذا كنت تستخدم Firebase:
-  pod 'Firebase/Core', '~> 10.0'
-
-  # إضافة جميع التبعيات الخاصة بـ Flutter عبر الأمر التالي
+  # التبعيات الخاصة بـ Flutter
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
 end
