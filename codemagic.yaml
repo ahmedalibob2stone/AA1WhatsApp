@@ -1,9 +1,12 @@
 workflows:
   my-app-workflow:
     name: My App Workflow
-    instance_type: mac_mini_m1
-    max_build_duration: 120
     environment:
+      flutter: 3.7.0
+      xcode: 14.0
+      cocoapods: default
+      instance_type: mac_mini_m1
+      max_build_duration: 120
       vars:
         FLUTTER_VERSION: stable
       groups:
@@ -14,7 +17,7 @@ workflows:
           echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
           echo $FIREBASE_PROJECT_ID > ios/Runner/firebase_project_id.txt
           echo $FIREBASE_STORAGE_BUCKET > ios/Runner/FIREBASE_STORAGE_BUCKET.txt
-          echo $IREBASE_MESSAGING_SENDER_ID > ios/Runner/FIREBASE_MESSAGING_SENDER_ID.txt
+          echo $FIREBASE_MESSAGING_SENDER_ID > ios/Runner/FIREBASE_MESSAGING_SENDER_ID.txt
           echo $FIREBASE_APP_ID > ios/Runner/FIREBASE_APP_ID.txt
           echo $BASE_URL > ios/Runner/BASE_URL.txt
           echo $FIREBASE_API_KEY > ios/Runner/FIREBASE_DATABASE_URL.txt
@@ -22,12 +25,15 @@ workflows:
           echo $FIREBASE_TOKEN > ios/Runner/FIREBASE_TOKEN.txt
           echo $Ios_BundleId > ios/Runner/Ios_BundleId.txt
 
+      - name: "Install dependencies"
+        script: |
+          flutter pub get
+          cd ios && pod install && cd ..
 
-
-
-
-
+      - name: "Build iOS"
+        script: flutter build ios --no-codesign
 
     cache:
       cache_paths:
         - $HOME/.pub-cache
+        - ios/Pods
