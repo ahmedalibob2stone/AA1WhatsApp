@@ -2,7 +2,9 @@ workflows:
   my-app-workflow:
     name: My App Workflow
     environment:
-      flutter: 3.7.0
+      flutter:
+        version: stable
+        dart: "3.7.0"
       xcode: 14.0
       cocoapods: default
       instance_type: mac_mini_m1
