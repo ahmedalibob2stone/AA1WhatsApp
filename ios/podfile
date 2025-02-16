@@ -1,8 +1,21 @@
+# تحديد منصة iOS والإصدار الأدنى
 platform :ios, '11.0'
+
+# تعطيل إحصائيات CocoaPods لتسريع البناء
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# تعريف flutter_root باستخدام المتغير البيئي FLUTTER_ROOT الذي يتم تعيينه في بيئة Codemagic
+flutter_root = ENV['FLUTTER_ROOT']
+if flutter_root.nil? || flutter_root.empty?
+  abort("FLUTTER_ROOT environment variable is not set. Make sure Flutter is installed and FLUTTER_ROOT is set.")
+end
+
+# تحميل سكريبت pod helper الخاص بفلاتر
+load File.join(flutter_root, 'packages', 'flutter_tools', 'bin', 'podhelper.rb')
 
 target 'Runner' do
   use_frameworks!
 
-  # التبعيات الخاصة بـ Flutter
-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  # تثبيت تبعيات Flutter الخاصة بـ iOS
+  flutter_install_all_ios_pods(File.join(File.dirname(__FILE__), '..'))
 end
