@@ -1,23 +1,8 @@
-workflows:
-  ios:
-    name: iOS Workflow
-    platform: ios
-    version: 11.0  # تحديد إصدار iOS المطلوب
-    target: Runner  # تحديد الهدف وهو تطبيق Flutter
-    use_frameworks: true  # لتفعيل دعم الـ Frameworks
+platform :ios, '11.0'
 
-    events:
-      - push  # سيتم تشغيل هذا العمل عند دفع التغييرات
+target 'Runner' do
+  use_frameworks!
 
-    scripts:
-      - name: Install CocoaPods
-        script: |
-          gem install cocoapods -v 1.11.2  # تأكد من استخدام النسخة الصحيحة
-
-      - name: Install dependencies
-        script: |
-          flutter pub get
-
-      - name: Build iOS app
-        script: |
-          flutter build ios --release --no-codesign
+  # التبعيات الخاصة بـ Flutter
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
