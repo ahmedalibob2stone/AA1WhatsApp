@@ -11,7 +11,7 @@ workflows:
       max_build_duration: 120
       vars:
         FLUTTER_VERSION: stable
-        FLUTTER_ROOT: "/opt/flutter"  # ✅ إضافة FLUTTER_ROOT
+        FLUTTER_ROOT: "/opt/flutter"
       groups:
         - firebase_credentials
 
@@ -31,15 +31,23 @@ workflows:
 
       - name: "Install dependencies"
         script: |
-          flutter clean  # ✅ تنظيف المشروع
+          flutter clean
           flutter pub get
           cd ios
-          rm -rf Podfile.lock Pods  # ✅ إعادة تثبيت Pods
+          rm -rf Podfile.lock Pods
           pod install --repo-update
           cd ..
 
       - name: "Build iOS"
         script: flutter build ios --no-codesign
+
+      - name: "Ensure Flutter is installed"
+        script: flutter doctor -v
+        
+      - name: "Install Cocoapods"
+        script: |
+          sudo gem install cocoapods -v 1.11.3
+          pod install --repo-update
 
     cache:
       cache_paths:
