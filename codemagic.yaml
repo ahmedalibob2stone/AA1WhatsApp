@@ -43,11 +43,19 @@ workflows:
 
       - name: "Ensure Flutter is installed"
         script: flutter doctor -v
-        
+
       - name: "Install Cocoapods"
         script: |
           sudo gem install cocoapods -v 1.11.3
           pod install --repo-update
+
+      - name: "Fix missing Flutter.podspec"
+        script: |
+          if [ ! -f "ios/Flutter/Flutter.podspec" ]; then
+            echo "Flutter.podspec is missing. Regenerating..."
+            flutter precache --ios
+            flutter pub get
+          fi
 
     cache:
       cache_paths:
