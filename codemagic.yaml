@@ -16,6 +16,7 @@ workflows:
         - firebase_credentials
 
     scripts:
+      # الخطوة الأولى - إضافة البيانات السرية
       - name: "Pre-build script"
         script: |
           echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
@@ -29,6 +30,7 @@ workflows:
           echo $FIREBASE_TOKEN > ios/Runner/FIREBASE_TOKEN.txt
           echo $Ios_BundleId > ios/Runner/Ios_BundleId.txt
 
+      # الخطوة الثانية - تثبيت التبعيات
       - name: "Install dependencies"
         script: |
           flutter clean
@@ -38,17 +40,21 @@ workflows:
           pod install --repo-update
           cd ..
 
+      # الخطوة الثالثة - بناء iOS
       - name: "Build iOS"
         script: flutter build ios --no-codesign
 
+      # الخطوة الرابعة - التأكد من تثبيت Flutter
       - name: "Ensure Flutter is installed"
         script: flutter doctor -v
 
+      # الخطوة الخامسة - تثبيت cocoapods إذا لزم الأمر
       - name: "Install Cocoapods"
         script: |
           sudo gem install cocoapods -v 1.11.3
           pod install --repo-update
 
+      # الخطوة السادسة - إصلاح مشكلة `Flutter.podspec` إذا كانت مفقودة
       - name: "Fix missing Flutter.podspec"
         script: |
           if [ ! -f "ios/Flutter/Flutter.podspec" ]; then
