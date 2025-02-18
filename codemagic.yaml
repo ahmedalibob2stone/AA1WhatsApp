@@ -41,8 +41,8 @@ workflows:
           cd ..
 
       # الخطوة الثالثة - بناء iOS
-      - name: "Build iOS"
-        script: flutter build ios --no-codesign
+      - name: Build iOS app without signing
+        script: flutter build ios --release --no-codesign
 
       # الخطوة الرابعة - التأكد من تثبيت Flutter
       - name: "Ensure Flutter is installed"
@@ -67,3 +67,5 @@ workflows:
       cache_paths:
         - $HOME/.pub-cache
         - ios/Pods
+
+
