@@ -1,7 +1,7 @@
 # ملفات البيئة الحساسة
 .keystore
-android/app/google-services.json
-ios/Runner/GoogleService-Info.plist
+
+
 # مجلدات البناء
 build/
 .dart_tool/
@@ -18,7 +18,7 @@ ios/Flutter/Debug.xcconfig
 ios/Flutter/Release.xcconfig
 ios/Flutter/App.framework
 ios/Flutter/Flutter.framework
-
+ios/Runner/GoogleService-Info.plist
 
 ios/Runner.xcodeproj/
 ios/*.xcodeproj/
@@ -30,7 +30,7 @@ android/local.properties
 android/app/debug
 android/app/profile
 android/app/release
-
+android/app/google-services.json
 # IntelliJ/Android Studio
 .idea/
 .idea/workspace.xml
