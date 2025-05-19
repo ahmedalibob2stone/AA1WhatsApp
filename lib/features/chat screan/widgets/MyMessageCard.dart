@@ -108,7 +108,7 @@ class MyMessageCard extends ConsumerWidget {
       children: [
         Text(
           username,
-          style: Theme.of(context).textTheme.subtitle2?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),

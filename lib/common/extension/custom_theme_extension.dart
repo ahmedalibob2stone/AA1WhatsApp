@@ -5,13 +5,11 @@ import 'package:flutter/services.dart';
 
 import '../extension/custom_theme_extension.dart';
 import '../utils/colors.dart';
-
 ThemeData lightTheme() {
   final ThemeData base = ThemeData.light();
-  return base.copyWith(
-    backgroundColor: Coloors.backgroundLight,
+  final theme = base.copyWith(
     scaffoldBackgroundColor: Coloors.backgroundLight,
-  //  extensions: [CustomThemeExtension.lightMode],
+    // extensions: [CustomThemeExtension.lightMode],
     appBarTheme: const AppBarTheme(
       backgroundColor: Coloors.greenLight,
       titleTextStyle: TextStyle(
@@ -69,6 +67,13 @@ ThemeData lightTheme() {
     switchTheme: const SwitchThemeData(
       thumbColor: MaterialStatePropertyAll(Color(0xFF83939C)),
       trackColor: MaterialStatePropertyAll(Color(0xFFDADFE2)),
+    ),
+  );
+
+  // حل مشكلة backgroundColor بإضافته يدويًا إلى ThemeData
+  return theme.copyWith(
+    colorScheme: theme.colorScheme.copyWith(
+      background: Coloors.backgroundLight,
     ),
   );
 }

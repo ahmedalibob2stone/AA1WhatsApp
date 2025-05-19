@@ -7,7 +7,9 @@ import '../utils/colors.dart';
 ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
-    backgroundColor: Coloors.backgroundDark,
+    colorScheme: base.colorScheme.copyWith(
+      background: Coloors.backgroundDark
+    ),
     scaffoldBackgroundColor: Coloors.backgroundDark,
    // extensions: [CustomThemeExtension.darkMode],
     appBarTheme: const AppBarTheme(
