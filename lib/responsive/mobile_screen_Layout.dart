@@ -73,7 +73,7 @@ class _MobileScreenLayoutState extends ConsumerState<MobileScreenLayout> with Wi
       case AppLifecycleState.paused:
         ref.read(UserViewModel.notifier).setUserState('offline');
         break;
-      default:  
+      default:
     }
   }
 
