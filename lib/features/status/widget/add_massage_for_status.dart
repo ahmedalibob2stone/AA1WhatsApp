@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constant.dart';
@@ -169,12 +170,13 @@ class _AddMessageForStatusState extends ConsumerState<AddMessageForStatus> {
                         _messageController.text += emoji.emoji;
                       });
                     },
-                    config: const Config(
+                    config: Config(
                       columns: 7,
                       emojiSizeMax: 32.0,
 
                     ),
                   ),
+
                 ),
             ],
           ),

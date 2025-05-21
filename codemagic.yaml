@@ -1,71 +1,15 @@
 workflows:
-  my-app-workflow:
-    name: My App Workflow
+  ios-build:
+    name: Build iOS App
     environment:
-      flutter:
-        version: stable
-        dart: "3.7.0"
-      xcode: 14.0
-      cocoapods: default
-      instance_type: mac_mini_m1
-      max_build_duration: 120
       vars:
-        FLUTTER_VERSION: stable
-        FLUTTER_ROOT: "/opt/flutter"
-      groups:
-        - firebase_credentials
+        FLUTTER_ROOT: /opt/flutter
+      flutter: stable
+      xcode: latest
 
     scripts:
-      # الخطوة الأولى - إضافة البيانات السرية
-      - name: "Pre-build script"
-        script: |
-          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
-          echo $FIREBASE_PROJECT_ID > ios/Runner/firebase_project_id.txt
-          echo $FIREBASE_STORAGE_BUCKET > ios/Runner/FIREBASE_STORAGE_BUCKET.txt
-          echo $FIREBASE_MESSAGING_SENDER_ID > ios/Runner/FIREBASE_MESSAGING_SENDER_ID.txt
-          echo $FIREBASE_APP_ID > ios/Runner/FIREBASE_APP_ID.txt
-          echo $BASE_URL > ios/Runner/BASE_URL.txt
-          echo $FIREBASE_API_KEY > ios/Runner/FIREBASE_DATABASE_URL.txt
-          echo $FIREBASE_AUTH_DOMAIN > ios/Runner/FIREBASE_AUTH_DOMAIN.txt
-          echo $FIREBASE_TOKEN > ios/Runner/FIREBASE_TOKEN.txt
-          echo $Ios_BundleId > ios/Runner/Ios_BundleId.txt
+      - name: Get Flutter dependencies
+        script: flutter pub get
 
-      # الخطوة الثانية - تثبيت التبعيات
-      - name: "Install dependencies"
-        script: |
-          flutter clean
-          flutter pub get
-          cd ios
-          rm -rf Podfile.lock Pods
-          pod install --repo-update
-          cd ..
-
-      # الخطوة الثالثة - بناء iOS
-      - name: Build iOS app without signing
+      - name: Build iOS
         script: flutter build ios --release --no-codesign
-
-      # الخطوة الرابعة - التأكد من تثبيت Flutter
-      - name: "Ensure Flutter is installed"
-        script: flutter doctor -v
-
-      # الخطوة الخامسة - تثبيت cocoapods إذا لزم الأمر
-      - name: "Install Cocoapods"
-        script: |
-          sudo gem install cocoapods -v 1.11.3
-          pod install --repo-update
-
-      # الخطوة السادسة - إصلاح مشكلة `Flutter.podspec` إذا كانت مفقودة
-      - name: "Fix missing Flutter.podspec"
-        script: |
-          if [ ! -f "ios/Flutter/Flutter.podspec" ]; then
-            echo "Flutter.podspec is missing. Regenerating..."
-            flutter precache --ios
-            flutter pub get
-          fi
-
-    cache:
-      cache_paths:
-        - $HOME/.pub-cache
-        - ios/Pods
-
-
