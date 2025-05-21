@@ -18,11 +18,9 @@ ios/Flutter/Debug.xcconfig
 ios/Flutter/Release.xcconfig
 ios/Flutter/App.framework
 ios/Flutter/Flutter.framework
+ios/Runner/GoogleService-Info.plist
 <<<<<<< HEAD
 
-=======
-
->>>>>>> 99d5714b7fdaaf00b1ead1287b39b3c03a7aa818
 
 ios/Runner.xcodeproj/
 ios/*.xcodeproj/
@@ -47,7 +45,4 @@ android/app/google-services.json
 
 
 
-<<<<<<< HEAD
-"ios/Runner/GoogleService-Info.plist" 
-=======
->>>>>>> 99d5714b7fdaaf00b1ead1287b39b3c03a7aa818
+
