@@ -45,6 +45,13 @@ workflows:
 
       - name: Build iOS App
         script: flutter build ios --release --flavor ios-production -t lib/main_prod.dart
+
+      - name: Install dependencies
+        script: |
+          flutter pub get
+          cd ios
+          pod install
+
     artifacts:
       - build/**/outputs/**/*.aab
       - build/app/outputs/flutter-apk/app-release.apk
