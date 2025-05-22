@@ -17,7 +17,9 @@ workflows:
         FIREBASE_API_KEY: $FIREBASE_API_KEY
         FIREBASE_PROJECT_ID: $FIREBASE_PROJECT_ID
         FIREBASE_TOKEN: $FIREBASE_TOKEN
-        GOOGLE_SERVICE_INFO_PLIST: $GOOGLE_SERVICE_INFO_PLIST.."   # Base64-encoded if used as file
+        GOOGLE_SERVICE_INFO_PLIST: $GOOGLE_SERVICE_INFO_PLIST  # بدون ..
+        Google_service_json: $GOOGLE_SERVICE_JSON
+
     triggering:
       events:
         - push
@@ -28,8 +30,19 @@ workflows:
           include: true
           source: true
     scripts:
+      - name: Decode google-services.json
+        script: |
+          echo Google_service_json | base64 --decode > android/app/google-services.json
+          echo "google-services.json file created successfully."
+
+          - name: GoogleService-Info.plist
+            script: |
+              echo GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
+              echo "GoogleService-Info.plist file created successfully."
+
       - name: Build Android APK
         script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
+
       - name: Build iOS App
         script: flutter build ios --release --flavor ios-production -t lib/main_prod.dart
     artifacts:
