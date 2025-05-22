@@ -1,15 +1,42 @@
 workflows:
-  ios-build:
-    name: Build iOS App
+  my-workflow:
+    name: Build App
+    instance_type: mac_mini
+    max_build_duration: 60
     environment:
+      flutter: 3.27.4
+      xcode: latest
       vars:
         FLUTTER_ROOT: /opt/flutter
-      flutter: stable
-      xcode: latest
-
+        BASE_URL: "https://your-api.com"
+        FIREBASE_AUTH_DOMAIN: $FIREBASE_AUTH_DOMAIN
+        FIREBASE_DATABASE_URL: $FIREBASE_DATABASE_URL
+        FIREBASE_APP_ID: $FIREBASE_APP_ID
+        FIREBASE_MESSAGING_SENDER_ID: $FIREBASE_MESSAGING_SENDER_ID
+        FIREBASE_STORAGE_BUCKET: $FIREBASE_STORAGE_BUCKET
+        FIREBASE_API_KEY: $FIREBASE_API_KEY
+        FIREBASE_PROJECT_ID: $FIREBASE_PROJECT_ID
+        FIREBASE_TOKEN: $FIREBASE_TOKEN
+        GOOGLE_SERVICE_INFO_PLIST: $GOOGLE_SERVICE_INFO_PLIST.."   # Base64-encoded if used as file
+    triggering:
+      events:
+        - push
+        - tag
+        - pull_request
+      branch_patterns:
+        - pattern: master
+          include: true
+          source: true
     scripts:
-      - name: Get Flutter dependencies
-        script: flutter pub get
-
-      - name: Build iOS
-        script: flutter build ios --release --no-codesign
+      - name: Build Android APK
+        script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
+      - name: Build iOS App
+        script: flutter build ios --release --flavor ios-production -t lib/main_prod.dart
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/app/outputs/flutter-apk/app-release.apk
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - ahmedali205001@gmail.com
