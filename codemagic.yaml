@@ -44,11 +44,17 @@ workflows:
       - name: Build Android APK
         script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
 
+      - name: Update CocoaPods
+        script: |
+         sudo gem install cocoapods
+
       - name: Install pods
         script: |
           cd ios
           pod install
           cd ..
+
+
 
       - name: Build iOS App
         script: flutter build ios --release --flavor ios-production -t lib/main_prod.dart
