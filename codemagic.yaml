@@ -48,6 +48,11 @@ workflows:
         script: |
          sudo gem install cocoapods
 
+      - name: Set iOS platform version to 13.0
+          script: |
+            sed -i '' 's/platform :ios, '\''[0-9]*\.[0-9]*'\''/platform :ios, '\''13.0'\''/' ios/Podfile
+            echo "Set iOS deployment target to 13.0 in Podfile"
+
       - name: Install pods
         script: |
           cd ios
