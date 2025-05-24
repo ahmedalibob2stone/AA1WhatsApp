@@ -33,7 +33,7 @@ workflows:
     scripts:
       - name: Decode google-services.json
         script: |
-          echo $Google_service_json | base64 --decode > android/app/google-services.json
+          echo $GOOGLE_SERVICE_JSON | base64 --decode > android/app/google-services.json
           echo "google-services.json file created successfully."
 
       - name: Decode GoogleService-Info.plist
@@ -44,31 +44,44 @@ workflows:
       - name: Build Android APK
         script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
 
-      - name: Build iOS (generates Podfile)
+      - name: Prepare iOS build (generate Podfile)
+        script: flutter build ios --release
+
+      - name: Remove RunnerTests target from Podfile if present
         script: |
-          flutter build ios --release
-      - name: Remove test targets from Podfile if present
-        
-        script: |
-          if grep -q "RunnerTests" ios/Podfile; then
-            echo "Removing RunnerTests target from Podfile"
-            sed -i '' '/target .RunnerTests. do/,/end/d' ios/Podfile
+          if [ -f ios/Podfile ]; then
+            if grep -q "target 'RunnerTests'" ios/Podfile; then
+              echo "Removing RunnerTests target from Podfile"
+              sed -i '' '/target '\''RunnerTests'\'' do/,/end/d' ios/Podfile
+            else
+              echo "RunnerTests target not found in Podfile"
+            fi
+          else
+            echo "Podfile not found, skipping removal"
           fi
 
-      - name: Set iOS platform version to 13.0
+      - name: Set iOS platform version to 13.0 in Podfile
         script: |
-          sed -i '' 's/platform :ios, .*/platform :ios, '\''13.0'\''/' ios/Podfile
-          echo "✅ Set iOS deployment target to 13.0"
+          if [ -f ios/Podfile ]; then
+            if grep -q "platform :ios" ios/Podfile; then
+              sed -i '' "s/platform :ios, .*/platform :ios, '13.0'/" ios/Podfile
+            else
+              echo "platform :ios, '13.0'" >> ios/Podfile
+            fi
+            echo "✅ Set iOS deployment target to 13.0"
+          else
+            echo "Podfile not found, skipping platform version setting"
+          fi
 
       - name: Install specific CocoaPods version (1.15.2)
         script: |
           sudo gem uninstall cocoapods -a -x || true
           sudo gem install cocoapods -v 1.15.2
 
-      - name: Install pods
+      - name: Install CocoaPods dependencies
         script: |
           cd ios
-          pod install
+          pod install --repo-update
           cd ..
 
     artifacts:
