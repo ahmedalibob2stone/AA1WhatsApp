@@ -44,9 +44,10 @@ workflows:
       - name: Build Android APK
         script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
 
-      - name: Update CocoaPods
+      - name: Install specific CocoaPods version (1.15.2)
         script: |
-          sudo gem install cocoapods
+          sudo gem uninstall cocoapods -a -x || true
+          sudo gem install cocoapods -v 1.15.2
 
       - name: Set iOS platform version to 13.0
         script: |
