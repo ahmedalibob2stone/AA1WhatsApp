@@ -49,17 +49,7 @@ workflows:
           sudo gem uninstall cocoapods -a -x || true
           sudo gem install cocoapods -v 1.15.2
 
-      - name: Set iOS platform version to 13.0
-        script: |
-          sed -i '' 's/platform :ios, '\''[0-9]*\.[0-9]*'\''/platform :ios, '\''13.0'\''/' ios/Podfile
-          echo "Set iOS deployment target to 13.0 in Podfile"
-
-      - name: Clean iOS Pods
-        script: |
-          cd ios
-          rm -rf Pods Podfile.lock
-          cd ..
-
+     
       - name: Install pods
         script: |
           cd ios
