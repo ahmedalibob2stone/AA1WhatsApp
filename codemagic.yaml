@@ -47,6 +47,13 @@ workflows:
       - name: Build iOS (generates Podfile)
         script: |
           flutter build ios --release
+      - name: Remove test targets from Podfile if present
+        
+        script: |
+          if grep -q "RunnerTests" ios/Podfile; then
+            echo "Removing RunnerTests target from Podfile"
+            sed -i '' '/target .RunnerTests. do/,/end/d' ios/Podfile
+          fi
 
       - name: Set iOS platform version to 13.0
         script: |
