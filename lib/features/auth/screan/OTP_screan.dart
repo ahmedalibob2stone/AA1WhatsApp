@@ -1,9 +1,8 @@
 import 'package:AA1WhatsApp/features/auth/viewmodel/auth_viewmodel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../constant.dart';
-import '../../welcome/screans/landing_screan.dart';
+
 
 class OTP_Scresn extends ConsumerWidget {
   const OTP_Scresn({Key? key, required this.verficationId}) : super(key: key);
@@ -97,7 +96,7 @@ class OTP_Scresn extends ConsumerWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withValues(),
                 spreadRadius: 1,
                 blurRadius: 1,
                 offset: Offset(0, 2),

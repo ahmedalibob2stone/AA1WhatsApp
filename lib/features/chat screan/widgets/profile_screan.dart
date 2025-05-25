@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-import '../../../common/utils/utills.dart';
 import '../../../common/widgets/Loeading.dart';
 import '../../../constant.dart';
 import '../../../model/group/group.dart';
@@ -80,7 +79,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         }
 
         final group = snapshot.data!;
-        final Admin = group.adminUid == ref.read(UserViewModel.notifier).userDatabyId(widget.uid);
+       // final Admin = group.adminUid == ref.read(UserViewModel.notifier).userDatabyId(widget.uid);
         final isAdmin = snapshot.data!.adminUid==FirebaseAuth.instance.currentUser!.uid;
 
         //  final Admin=snapshot.data!.membersUid.where(snapshot.dat);
@@ -89,7 +88,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             child: Column(
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(0.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: screenWidth * 0.15,
                   backgroundImage: group.groupPic.isNotEmpty
                       ? CachedNetworkImageProvider(group.groupPic)
@@ -336,7 +335,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withValues(),
                                 spreadRadius: 1,
                                 blurRadius: 7,
                                 offset: Offset(0, 4),
@@ -354,7 +353,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withValues(),
                                 spreadRadius: 1,
                                 blurRadius: 7,
                                 offset: Offset(0, 4),
@@ -449,7 +448,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Colors.grey.withValues(),
               spreadRadius: 1,
               blurRadius: 7,
               offset: Offset(0, 4),
@@ -479,7 +478,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withValues(),
                 spreadRadius: 2,
                 blurRadius: 1,
                 offset: Offset(0, 3),
@@ -515,7 +514,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withValues(),
             spreadRadius: 2,
             blurRadius: 1,
             offset: Offset(0, 3),
@@ -543,7 +542,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     );
   }
 
-  Widget _buildListTile({
+  Widget buildListTile({
     required IconData icon,
     required String title,
     String? subtitle,

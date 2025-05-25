@@ -1,6 +1,5 @@
 import 'package:AA1WhatsApp/model/contact/chat_contact.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -84,7 +83,7 @@ class ContactList extends ConsumerWidget {
               },
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: avatarRadius,
                   backgroundImage: chatContact.prof.isNotEmpty
                       ? CachedNetworkImageProvider(chatContact.prof)
@@ -223,7 +222,7 @@ class ContactList extends ConsumerWidget {
                   ],
                 ),
                 leading: CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: avatarRadius,
                   backgroundImage: groupData.groupPic.isNotEmpty
                       ? CachedNetworkImageProvider(groupData.groupPic)
@@ -298,7 +297,7 @@ class ContactList extends ConsumerWidget {
                   ],
                 ),
                 leading: CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: avatarRadius,
                   backgroundImage: chatContact.prof.isNotEmpty
                       ? CachedNetworkImageProvider(chatContact.prof)

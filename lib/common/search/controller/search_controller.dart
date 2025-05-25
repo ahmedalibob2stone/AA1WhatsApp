@@ -9,7 +9,7 @@ final  searchControllerProvider=Provider((ref) {
 });
 class SearchController{
   SearchRepository searchRepository;
-  final ProviderRef ref;
+  final Ref ref;
 
   SearchController({
     required this.searchRepository,

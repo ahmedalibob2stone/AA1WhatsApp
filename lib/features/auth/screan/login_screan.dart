@@ -1,18 +1,14 @@
-import 'dart:async';
-import 'dart:ffi';
-import 'package:AA1WhatsApp/features/auth/repository/auth_repository.dart';
-import 'package:AA1WhatsApp/features/auth/screan/OTP_screan.dart';
+
 import 'package:AA1WhatsApp/features/auth/viewmodel/auth_viewmodel.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 import '../../../common/widgets/Buttom_container.dart';
 import '../../../common/widgets/Form_Container.dart';
 import '../../../constant.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../common/utils/utills.dart';
+
 
 class Login_Screan extends ConsumerStatefulWidget {
   const Login_Screan({Key? key}) : super(key: key);

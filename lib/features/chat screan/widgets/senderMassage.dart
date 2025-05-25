@@ -47,7 +47,7 @@ class SenderMessageCard extends StatelessWidget {
               children: [
                 const SizedBox(width: 8),
                 CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(0.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: 20,
                   backgroundImage: CachedNetworkImageProvider(prof),
                 ),
@@ -78,7 +78,7 @@ class SenderMessageCard extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Colors.grey.withValues(),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: DisplayTypeofMassage(

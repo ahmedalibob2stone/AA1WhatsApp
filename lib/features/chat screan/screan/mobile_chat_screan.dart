@@ -3,17 +3,13 @@ import 'package:AA1WhatsApp/model/user_model/user_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:AA1WhatsApp/features/call/controller/call_controller.dart';
 import 'package:AA1WhatsApp/features/call/screan/call_pickup_screan.dart';
-import 'package:AA1WhatsApp/features/chat%20screan/conrroller/chat_controller.dart';
-import 'package:AA1WhatsApp/model/group/group.dart';
+
 import 'package:flutter/material.dart';
-import '../../../common/Provider/Message_reply.dart';
 import '../../../common/widgets/Loeading.dart';
-import '../../../common/widgets/info.dart';
 import '../../../constant.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../widgets/Bottomfileforchat.dart';
-import '../widgets/Message_reply.dart';
 import '../widgets/chat_list.dart';
 
 class MobileChatScrean extends ConsumerWidget {
@@ -80,7 +76,7 @@ class MobileChatScrean extends ConsumerWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.grey.withOpacity(.3),
+                  backgroundColor: Colors.grey.withValues(),
                   radius: isLargeScreen ? 30 : 20,
                   backgroundImage: profilePic.isNotEmpty
                       ? CachedNetworkImageProvider(profilePic)
@@ -141,7 +137,7 @@ class MobileChatScrean extends ConsumerWidget {
                     child: Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: Colors.grey.withOpacity(.3),
+                          backgroundColor: Colors.grey.withValues(),
                           radius: isLargeScreen ? 30 : 20,
                           backgroundImage: snapshot.data!.profile.isNotEmpty
                               ? CachedNetworkImageProvider(snapshot.data!.profile)

@@ -13,7 +13,6 @@ import 'package:uuid/uuid.dart';
 import '../../../common/utils/utills.dart';
 
 import '../../../model/group/group.dart';
-import '../../../model/profile_model/profile_model.dart';
 
 import 'package:AA1WhatsApp/common/enums/enum_massage.dart';
 import 'package:riverpod/riverpod.dart';
@@ -31,7 +30,7 @@ final chatRepositoryProvider =Provider(
 class ChatRepository {
   final FirebaseFirestore fire;
   final FirebaseAuth auth;
-  final ProviderRef ref;
+  final Ref ref;
 
 
   ChatRepository(  {required this.fire, required this.auth,required this.ref});

@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-import '../extension/custom_theme_extension.dart';
 import '../utils/colors.dart';
 ThemeData lightTheme() {
   final ThemeData base = ThemeData.light();
@@ -65,15 +63,15 @@ ThemeData lightTheme() {
       tileColor: Coloors.backgroundLight,
     ),
     switchTheme: const SwitchThemeData(
-      thumbColor: MaterialStatePropertyAll(Color(0xFF83939C)),
-      trackColor: MaterialStatePropertyAll(Color(0xFFDADFE2)),
+      thumbColor: WidgetStatePropertyAll(Color(0xFF83939C)),
+      trackColor: WidgetStatePropertyAll(Color(0xFFDADFE2)),
     ),
   );
 
   // حل مشكلة backgroundColor بإضافته يدويًا إلى ThemeData
   return theme.copyWith(
     colorScheme: theme.colorScheme.copyWith(
-      background: Coloors.backgroundLight,
+      surface: Coloors.backgroundLight,
     ),
   );
 }

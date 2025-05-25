@@ -8,7 +8,7 @@ ThemeData darkTheme() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
-      background: Coloors.backgroundDark
+      surface: Coloors.backgroundDark
     ),
     scaffoldBackgroundColor: Coloors.backgroundDark,
    // extensions: [CustomThemeExtension.darkMode],
@@ -70,8 +70,8 @@ ThemeData darkTheme() {
       tileColor: Coloors.backgroundDark,
     ),
     switchTheme: const SwitchThemeData(
-      thumbColor: MaterialStatePropertyAll(Coloors.greyDark),
-      trackColor: MaterialStatePropertyAll(Color(0xFF344047)),
+      thumbColor: WidgetStatePropertyAll(Coloors.greyDark),
+      trackColor: WidgetStatePropertyAll(Color(0xFF344047)),
     ),
   );
 }

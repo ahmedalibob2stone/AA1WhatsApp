@@ -1,16 +1,11 @@
 import 'package:AA1WhatsApp/features/splash%20screan/splash_screen.dart';
-import 'package:AA1WhatsApp/responsive/mobile_screen_Layout.dart';
-import 'package:AA1WhatsApp/responsive/responsive.dart';
-import 'package:AA1WhatsApp/responsive/web_screen_Layout.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:AA1WhatsApp/firebase_options.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'OnGenerateRoutes.dart';
-import 'common/widgets/Error_Screan.dart';
-import 'common/widgets/Loeading.dart';
-import 'features/auth/viewmodel/auth_userviewmodel.dart';
-import 'features/welcome/screans/landing_screan.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {

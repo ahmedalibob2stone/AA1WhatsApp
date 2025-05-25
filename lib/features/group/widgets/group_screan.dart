@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:AA1WhatsApp/model/user_model/user_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,8 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../common/widgets/Error_Screan.dart';
 import '../../../common/widgets/Loeading.dart';
 
-import '../../../constant.dart';
-import '../../contact/controller/select_contact_controller.dart';
 import '../../contact/controller/select_contact_controller2.dart';
 
 
@@ -33,7 +29,7 @@ class _SelectContactsGroupState extends ConsumerState<SelectContactsGroup> {
       selectedContactsIndex.add(index);
     }
     setState(() {});
-    ref.read(selectedGroupContacts.state).update((state) => [...state, contact]);
+    ref.read(selectedGroupContacts.notifier).update((state) => [...state, contact]);
   }
 
   @override
@@ -66,7 +62,7 @@ class _SelectContactsGroupState extends ConsumerState<SelectContactsGroup> {
                     ),
                   ),
                   leading: CircleAvatar(
-                    backgroundColor: isSelected ? Colors.grey[400] : Colors.grey.withOpacity(.3),
+                    backgroundColor: isSelected ? Colors.grey[400] : Colors.grey.withValues(),
                     radius: avatarRadius,
                     child: isSelected
                         ? Icon(

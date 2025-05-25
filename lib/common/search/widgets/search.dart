@@ -1,12 +1,9 @@
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../controller/search_controller.dart';
 
 
 class Searchfor extends ConsumerStatefulWidget {
@@ -20,7 +17,7 @@ class _SearchforState extends ConsumerState<Searchfor> {
 
   @override
   Widget build(BuildContext context) {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
+    //final uid = FirebaseAuth.instance.currentUser!.uid;
     return Scaffold(
 
 

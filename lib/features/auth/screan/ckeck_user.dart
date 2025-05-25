@@ -5,7 +5,7 @@ import 'package:AA1WhatsApp/features/welcome/screans/landing_screan.dart';
 import 'package:AA1WhatsApp/responsive/mobile_screen_Layout.dart';
 import 'package:AA1WhatsApp/responsive/responsive.dart';
 import 'package:AA1WhatsApp/responsive/web_screen_Layout.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,7 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class CheckUser extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userController = ref.read(UserViewModel.notifier);
+    //final userController = ref.read(UserViewModel.notifier);
     final userState = ref.watch(UserViewModel);
 
 

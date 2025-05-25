@@ -36,15 +36,15 @@ class _ChatListState extends ConsumerState<ChatList> {
     super.dispose();
   }
 
-  void _replyToMessage(String message, bool isMe, EnumData enumData) {
-    ref.read(messageReplyProvider.state).state =
+  void replyToMessage(String message, bool isMe, EnumData enumData) {
+    ref.read(messageReplyProvider.notifier).state =
         MessageReply(message: message, isMe: isMe, messageDate: enumData);
   }
 
   @override
   Widget build(BuildContext context) {
     void _onMessageSwipe(String message, bool isMe, EnumData enumData) {
-      ref.read(messageReplyProvider.state).state =
+      ref.read(messageReplyProvider.notifier).state =
           MessageReply(message: message, isMe: isMe, messageDate: enumData);
     }
 

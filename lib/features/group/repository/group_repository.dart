@@ -19,7 +19,7 @@ final groupRepositoryProvider=Provider((ref) =>
 class GroupRepository{
   final FirebaseAuth auth;
   final FirebaseFirestore fire;
-  final ProviderRef ref;
+  final Ref ref;
   GroupRepository({
     required this.auth,
     required this.fire,
@@ -52,7 +52,7 @@ class GroupRepository{
       List<String> uids = [];
       for (int i = 0; i < selectedContact.length; i++) {
         var contact = selectedContact[i];
-        if (contact.phones == null || contact.phones.isEmpty) {
+        if (contact.phones.isEmpty || contact.phones.isEmpty) {
           continue; // Skip this contact if it has no phone numbers
         }
         var usercollection = await FirebaseFirestore.instance
@@ -110,7 +110,7 @@ class GroupRepository{
 
       for (int i = 0; i < selectedContact.length; i++) {
         var contact = selectedContact[i];
-        if (contact.phones == null || contact.phones.isEmpty) {
+        if (contact.phones.isEmpty || contact.phones.isEmpty) {
           continue; // Skip this contact if it has no phone numbers
         }
 

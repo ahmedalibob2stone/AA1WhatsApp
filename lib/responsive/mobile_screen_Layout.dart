@@ -1,7 +1,5 @@
 import 'package:AA1WhatsApp/settings/mydrew/draw.dart';
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:io';
@@ -12,10 +10,9 @@ import '../common/utils/utills.dart';
 import '../constant.dart';
 import '../features/auth/viewmodel/auth_userviewmodel.dart';
 import '../features/call/screan/call_list.dart';
-import '../features/chat screan/conrroller/chat_controller.dart';
+
 import '../features/chat screan/widgets/contact_list.dart';
 import '../features/status/screan/status_contacts_screan.dart';
-import '../features/status/screan/status_screan.dart';
 
 class MobileScreenLayout extends ConsumerStatefulWidget {
   const MobileScreenLayout({Key? key}) : super(key: key);

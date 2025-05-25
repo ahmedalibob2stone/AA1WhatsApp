@@ -2,9 +2,7 @@ import 'package:AA1WhatsApp/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:AA1WhatsApp/model/user_model/user_model.dart';
 import '../controller/select_contact_controller.dart';
-import '../repository/select_contact_repository.dart';
 import 'contacts_screan.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,15 +24,15 @@ class ContactPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Screen dimensions
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    //final screenHeight = MediaQuery.of(context).size.height;
 
     // Responsive font sizes and paddings
     final double appBarTitleFontSize = screenWidth * 0.05; // 5% of screen width
-    final double appBarSubtitleFontSize = screenWidth * 0.03; // 3% of screen width
-    final double listTileFontSize = screenWidth * 0.045; // 4.5% of screen width
+    //final double appBarSubtitleFontSize = screenWidth * 0.03; // 3% of screen width
+   // final double listTileFontSize = screenWidth * 0.045; // 4.5% of screen width
     final double listTilePadding = screenWidth * 0.02; // 2% of screen width
-    final double circleAvatarRadius = screenWidth * 0.08; // 8% of screen width
-    final double iconSize = screenWidth * 0.07; // 7% of screen width
+    //final double circleAvatarRadius = screenWidth * 0.08; // 8% of screen width
+   // final double iconSize = screenWidth * 0.07; // 7% of screen width
     final contactsViewModel = ref.watch(contactsControllerProvider);
 
     return Scaffold(

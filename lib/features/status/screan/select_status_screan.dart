@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../constant.dart';
 import '../widget/add_massage_for_status.dart';
 
 class SelectStatusScreen extends ConsumerWidget {

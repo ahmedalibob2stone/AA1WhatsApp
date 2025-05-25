@@ -4,12 +4,11 @@ import 'dart:io';
 
 import 'package:AA1WhatsApp/common/utils/utills.dart';
 import 'package:AA1WhatsApp/features/edit_profile/view_model/update_date_user.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../common/widgets/Form_Container.dart';
 
 class EditProfile extends ConsumerStatefulWidget {
   final profile;
@@ -31,12 +30,7 @@ class _EditProfileState extends ConsumerState<EditProfile> {
   bool isLoading=false;
   bool _validatestatu=true;
   bool _validateName=true;
-  @override
-  void disposed(){
-    super.dispose();
-    statu.dispose();
-    namecontroller.dispose();
-  }
+
 
   //selectImage(),Pickphoto()
 
@@ -109,7 +103,7 @@ class _EditProfileState extends ConsumerState<EditProfile> {
   @override
   Widget build(BuildContext context) {
     final userState = ref.watch(UpdateUserDateProvider);
-    final userController = ref.read(UpdateUserDateProvider.notifier);
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -184,7 +178,7 @@ Navigator.pop(context);
                                  SizedBox(width: 16,),
                                  Icon(Icons.person,color: Colors.grey,size: 20,) ,
                                  SizedBox(width: 10,),
-                                 namecontroller==null? Container(width: MediaQuery.of(context).size.width *0.75,
+                                 namecontroller.text.isEmpty? Container(width: MediaQuery.of(context).size.width *0.75,
                                    // padding: EdgeInsets.all(20),
                                    child: TextField(
                                      controller: statu,
@@ -226,7 +220,7 @@ Navigator.pop(context);
                                  SizedBox(width: 16,),
                                 Icon(Icons.info_outline_rounded,color: Colors.grey,size: 20,) ,
                                  SizedBox(width: 10,),
-                                 statu==null? Container(width: MediaQuery.of(context).size.width *0.75,
+                                 statu.text.isEmpty? Container(width: MediaQuery.of(context).size.width *0.75,
                                   // padding: EdgeInsets.all(20),
                                    child: TextField(
                                      controller: statu,

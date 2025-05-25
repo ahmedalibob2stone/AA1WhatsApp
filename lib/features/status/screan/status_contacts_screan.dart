@@ -1,13 +1,12 @@
-import 'package:AA1WhatsApp/features/status/screan/status_screan.dart';
-import 'package:AA1WhatsApp/features/status/screan/status_screan.dart';
+
 import 'package:AA1WhatsApp/features/status/viewmodel/getstatus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../common/widgets/Loeading.dart';
 import '../../../constant.dart';
 import '../../../model/status/status.dart';
-import '../viewmodel/add_statu.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+
+
 class StatusListScreen extends ConsumerWidget {
   const StatusListScreen({Key? key}) : super(key: key);
 

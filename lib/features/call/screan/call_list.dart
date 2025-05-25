@@ -1,6 +1,6 @@
 import 'package:AA1WhatsApp/features/call/screan/call_screan.dart';
 import 'package:AA1WhatsApp/model/call/call.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -25,13 +25,13 @@ class CallListScreen extends ConsumerWidget {
 
           return ListView.builder(
             itemCount: snapshot.data!.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (context, index){
               final call = snapshot.data![index];
 
 
 
 
-                child: ListTile(
+           return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(call.callerPic),
                   ),
@@ -65,6 +65,7 @@ class CallListScreen extends ConsumerWidget {
 
             },
           );
+
         },
       ),
     );

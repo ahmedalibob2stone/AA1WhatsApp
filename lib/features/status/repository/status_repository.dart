@@ -23,7 +23,7 @@ final statusRepositoryProvider = Provider((ref) => StatusRepository(
 class StatusRepository {
   final FirebaseAuth auth;
   final FirebaseFirestore fire;
-  final ProviderRef ref;
+  final Ref ref;
   final String uid;
   StatusRepository({
     required this.auth,
@@ -140,7 +140,7 @@ class StatusRepository {
     return uidWhoCanSee;
   }
 
-  Future<List<String>> _getStatusImageUrls(String uid, String imageUrl) async {
+  Future<List<String>> getStatusImageUrls(String uid, String imageUrl) async {
     List<String> statusImageUrls = [];
     var statusesSnapshot = await fire
         .collection('status')
@@ -160,7 +160,7 @@ class StatusRepository {
     return statusImageUrls;
   }
 
-  Future<List<String>> _getMessages(String uid, String message) async {
+  Future<List<String>> getMessages(String uid, String message) async {
     List<String> messages = [];
     var statusesSnapshot = await fire
         .collection('status')

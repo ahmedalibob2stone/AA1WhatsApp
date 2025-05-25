@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +63,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
               child: Icon(
                 _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
                 size: 60,
-                color: Colors.white.withOpacity(0.7),
+                color: Colors.white.withValues(),
               ),
             ),
           ),

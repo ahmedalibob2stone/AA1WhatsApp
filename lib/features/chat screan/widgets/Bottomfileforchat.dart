@@ -2,8 +2,7 @@ import 'dart:io';
 import 'package:AA1WhatsApp/common/utils/utills.dart';
 import 'package:AA1WhatsApp/features/chat%20screan/conrroller/provider%20ex.dart';
 
-import 'package:enough_giphy/src/models/gif.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';

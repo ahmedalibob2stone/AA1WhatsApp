@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 
-import '../extension/custom_theme_extension.dart';
 import '../utils/colors.dart';
 
 ThemeData lightTheme() {
@@ -10,7 +9,7 @@ ThemeData lightTheme() {
   return  base.copyWith(
     colorScheme:
     base.colorScheme.copyWith(
-      background: Coloors.backgroundLight,
+      surface: Coloors.backgroundLight,
     ),
 
     scaffoldBackgroundColor: Coloors.backgroundLight,
@@ -70,8 +69,8 @@ ThemeData lightTheme() {
       tileColor: Coloors.backgroundLight,
     ),
     switchTheme: const SwitchThemeData(
-      thumbColor: MaterialStatePropertyAll(Color(0xFF83939C)),
-      trackColor: MaterialStatePropertyAll(Color(0xFFDADFE2)),
+      thumbColor: WidgetStatePropertyAll(Color(0xFF83939C)),
+      trackColor: WidgetStatePropertyAll(Color(0xFFDADFE2)),
     ),
   );
 }

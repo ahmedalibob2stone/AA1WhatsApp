@@ -8,9 +8,6 @@ import 'package:AA1WhatsApp/model/user_model/user_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/utils/colors.dart';
-
-import 'package:AA1WhatsApp/main.dart';
 class ConCard extends StatelessWidget {
   const ConCard({
     Key? key,
@@ -30,7 +27,7 @@ class ConCard extends StatelessWidget {
         right: 10,
       ),
       leading: CircleAvatar(
-        backgroundColor: Colors.grey.withOpacity(.3),
+        backgroundColor: Colors.grey.withValues(),
         radius: 20,
         backgroundImage: contactSource.profile.isNotEmpty
             ? CachedNetworkImageProvider(contactSource.profile)

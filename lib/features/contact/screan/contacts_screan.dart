@@ -37,7 +37,7 @@ class ContactCard extends StatelessWidget {
         right: horizontalPadding / 2,
       ),
       leading: CircleAvatar(
-        backgroundColor: Colors.grey.withOpacity(.3),
+   backgroundColor: Colors.grey.withValues(),
         radius: leadingRadius,
         backgroundImage: contactSource.profile.isNotEmpty
             ? CachedNetworkImageProvider(contactSource.profile)

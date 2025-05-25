@@ -22,7 +22,7 @@ class SelectContactsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Get the screen width and height
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+   // final screenHeight = MediaQuery.of(context).size.height;
 
     // Adjust font sizes and padding based on screen width
     final double appBarTitleFontSize = screenWidth * 0.045; // 4.5% of screen width

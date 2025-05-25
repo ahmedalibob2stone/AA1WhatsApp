@@ -5,7 +5,7 @@ import 'package:AA1WhatsApp/model/user_model/user_model.dart';
 import 'package:AA1WhatsApp/storsge/repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import '../../../common/utils/utills.dart';
  import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +24,7 @@ import '../../../responsive/mobile_screen_Layout.dart';
  {
    final FirebaseFirestore fire;
    final FirebaseAuth auth;
-   final ProviderRef ref;
+   final Ref ref;
 
    AuthRepository  (
        {
@@ -43,7 +43,8 @@ import '../../../responsive/mobile_screen_Layout.dart';
        }
        return user;
      }catch(e){
-
+       print('Error fetching user data: $e');
+       return null;
      }
 
    }

@@ -1,20 +1,13 @@
 
 import 'dart:io';
 
-import 'package:AA1WhatsApp/features/welcome/screans/landing_screan.dart';
 import 'package:AA1WhatsApp/model/user_model/user_model.dart';
-import 'package:AA1WhatsApp/responsive/mobile_screen_Layout.dart';
-import 'package:AA1WhatsApp/responsive/responsive.dart';
-import 'package:AA1WhatsApp/responsive/web_screen_Layout.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../repository/auth_repository.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../repository/auth_repository.dart';
+
 
 final UserViewModel = StateNotifierProvider<authCurentUser, AuthState>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);

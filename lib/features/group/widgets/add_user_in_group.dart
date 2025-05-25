@@ -1,5 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,14 +33,14 @@ class _Add_Usr_To_GroupState extends ConsumerState<Add_Usr_To_Group> {
       selectedContactsIndex.add(index);
     }
     setState(() {});
-    ref.read(selectedUser.state).update((state) => [...state, contact]);
+    ref.read(selectedUser.notifier).update((state) => [...state, contact]);
   }
 
   void AddNewUser(){
 
       ref.read(groupControllerProvider).addUser(context,
           ref.read(selectedUser),widget.GroupId);
-      ref.read(selectedUser.state).update((state) => []);
+      ref.read(selectedUser.notifier).update((state) => []);
       Navigator.pop(context);
 
 
@@ -51,9 +51,7 @@ class _Add_Usr_To_GroupState extends ConsumerState<Add_Usr_To_Group> {
 
     final double appBarTitleFontSize = screenWidth * 0.05; // 5% of screen width
     final double appBarSubtitleFontSize = screenWidth * 0.03; // 3% of screen width
-    final double listTileFontSize = screenWidth * 0.045; // 4.5% of screen width
-    final double listTilePadding = screenWidth * 0.02; // 2% of screen width
-    final double circleAvatarRadius = screenWidth * 0.08; // 8% of screen width
+
     final double iconSize = screenWidth * 0.07; // 7% of screen width
 
 
@@ -128,7 +126,7 @@ class _Add_Usr_To_GroupState extends ConsumerState<Add_Usr_To_Group> {
                       ),
                     )
                         :  CircleAvatar(
-                        backgroundColor: Colors.grey.withOpacity(.3),
+                        backgroundColor: Colors.grey.withValues(),
                         radius: 20,
                         //    backgroundImage: contact.photo!.isNotEmpty
 

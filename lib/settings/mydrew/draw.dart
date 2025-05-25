@@ -3,7 +3,7 @@
   import 'package:AA1WhatsApp/constant.dart';
 import 'package:AA1WhatsApp/features/auth/viewmodel/auth_userviewmodel.dart';
 import 'package:AA1WhatsApp/model/user_model/user_model.dart';
-  import 'package:flutter/cupertino.dart';
+
   import 'package:flutter/material.dart';
   import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -51,16 +51,20 @@ import 'package:AA1WhatsApp/model/user_model/user_model.dart';
               , child: UserAccountsDrawerHeader(accountName:
              Text(snapshot.data!.name,style: TextStyle(fontSize: 20,color: Colors.black),) ,
                accountEmail: Text(snapshot.data!.phoneNumber,style: TextStyle(fontSize: 15,color: Colors.grey),),
-             currentAccountPicture: GestureDetector(
-             child:snapshot.data!.profile!=null? CircleAvatar(
-               backgroundImage: NetworkImage(snapshot.data!.profile),
-             radius: 35 ,
-             backgroundColor:kkPrimaryColor,
-           //  child: Icon(Icons.person,color: Colors.white,),
-             ):Container(
-               child: Icon(Icons.person,color: Colors.white,)
-             ),
-      ),
+               currentAccountPicture: GestureDetector(
+                 child: snapshot.data!.profile.isNotEmpty
+                     ? CircleAvatar(
+                   backgroundImage: NetworkImage(snapshot.data!.profile),
+                   radius: 35,
+                   backgroundColor: kkPrimaryColor,
+                 )
+                     : CircleAvatar(
+                   child: Icon(Icons.person, color: Colors.white),
+                   radius: 35,
+                   backgroundColor: kkPrimaryColor,
+                 ),
+               ),
+
       decoration: BoxDecoration(
       color: Colors.grey[100],
       ),

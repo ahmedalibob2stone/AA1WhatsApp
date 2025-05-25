@@ -1,15 +1,12 @@
 import 'dart:io';
 import 'package:AA1WhatsApp/common/utils/utills.dart';
 import 'package:AA1WhatsApp/features/auth/viewmodel/auth_userviewmodel.dart';
-import 'package:AA1WhatsApp/model/user_model/user_model.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../common/widgets/Buttom_container.dart';
 import '../../../common/widgets/Error_Screan.dart';
-import '../../../common/widgets/Form_Container.dart';
 import '../../../common/widgets/Loeading.dart';
 import '../../../constant.dart';
 import '../../../responsive/mobile_screen_Layout.dart';
@@ -33,12 +30,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
   bool isLoading = false;
   bool _validatestatu = true;
 
-  @override
-  void disposed() {
-    super.dispose();
-    name.dispose();
-    statu.dispose();
-  }
+
 
   void selectImage() async {
     image = await pickImageFromGallery(context);
@@ -50,7 +42,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
     setState(() {});
   }
 
-  final _formkey = GlobalKey<FormState>();
+  //final _formkey = GlobalKey<FormState>();
 
   void UploadDataToFirestore() async {
     String Name = name.text.trim();
@@ -153,7 +145,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
 
   @override
   Widget build(BuildContext context) {
-    final userController = ref.read(UserViewModel.notifier);
+   // final userController = ref.read(UserViewModel.notifier);
   //  final userState = ref.watch(userDataAuthProvider);
 
     return ref.watch(userDataAuthProvider).when(
@@ -238,7 +230,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
                         : ButtonContainerWidget(
                       color: kkPrimaryColor,
                       text: 'Next',
-                      onTapListener: name != null && statu != null && image != null
+                      onTapListener: name.text.isNotEmpty && statu.text.isNotEmpty && image != null
                           ? UploadDataToFirestore
                           : Continues,
                     ),

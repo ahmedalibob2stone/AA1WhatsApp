@@ -41,7 +41,7 @@ class ButtonContainer extends StatefulWidget {
   State<ButtonContainerWidget> createState() => _ButtonContainerWidgetState();
 }
 
-class _ButtonContainerState extends State<ButtonContainerWidget> {
+class ButtonContainerState extends State<ButtonContainerWidget> {
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {

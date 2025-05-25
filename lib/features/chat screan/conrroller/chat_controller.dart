@@ -1,19 +1,17 @@
 
 import 'dart:async';
-import 'dart:io';
+
 
 import 'package:AA1WhatsApp/features/chat%20screan/conrroller/provider%20ex.dart';
 import 'package:AA1WhatsApp/features/chat%20screan/repositories/chat_repository.dart';
 import 'package:AA1WhatsApp/model/contact/chat_contact.dart';
 import 'package:AA1WhatsApp/model/massage/massage.dart';
-import 'package:AA1WhatsApp/model/user_model/user_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../../model/group/group.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../common/Provider/Message_reply.dart';
-import '../../../common/enums/enum_massage.dart';
+
 
 final  chatControllerProvider=StateNotifierProvider<ChatController,ChatState>((ref) {
  final chatRepository=ref.watch(chatRepositoryProvider);

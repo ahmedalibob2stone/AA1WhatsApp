@@ -17,7 +17,7 @@ final  providercontrollerex=Provider((ref) {
 });
 class providerex{
   final ChatRepository chatRepository;
-  late ProviderRef ref;
+  late Ref ref;
 
   providerex({
     required this.chatRepository,required this.ref
@@ -26,9 +26,9 @@ class providerex{
       String gif, String reciveUserId,bool isGroupChat) {
     //https://giphy.com/gifs/love-i-you-ily-eocJr1HAyDbTDGgyFG
     //https://i.giphy.com/media/eocJr1HAyDbTDGgyFG/200.gif
-    int gifUrl = gif.lastIndexOf('_') + 1;
-    String GifSubString = gif.substring(gifUrl);
-    String NewGif = 'https://i.giphy.com/media/$GifSubString/200.gif';
+   // int gifUrl = gif.lastIndexOf('_') + 1;
+  //  String GifSubString = gif.substring(gifUrl);
+   // String NewGif = 'https://i.giphy.com/media/$GifSubString/200.gif';
 
     final massageReply = ref.read(messageReplyProvider);
     ref.read(userDataAuthProvider).whenData((value) =>
@@ -37,7 +37,7 @@ class providerex{
             reciveUserId: reciveUserId,
             sendUser: value!,
             messageReply: massageReply,isGroupChat: isGroupChat));
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
   void SendFileMassage(BuildContext context,
       File file,
@@ -57,7 +57,7 @@ class providerex{
             messageReply: massageReply!,
             isGroupChat: isGroupChat),
     );
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
   void sendTextMessage(BuildContext context, String text, String reciveUserId,bool isGroupChat) {
     final massageReply = ref.read(messageReplyProvider);
@@ -70,7 +70,7 @@ class providerex{
             messageReply: massageReply,
             isGroupChat: isGroupChat));
 
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
 
 
   }

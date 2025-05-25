@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:AA1WhatsApp/constant.dart';
 import 'package:AA1WhatsApp/model/user_model/user_model.dart';
 import 'package:AA1WhatsApp/storsge/repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +9,6 @@ import 'package:flutter/material.dart';
 import '../../../common/utils/utills.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../responsive/mobile_screen_Layout.dart';
 
 
 final UpdateRepositoryProvider = Provider<UpdateRepository>((ref) {
@@ -24,7 +22,7 @@ class UpdateRepository
 {
   final FirebaseFirestore fire;
   final FirebaseAuth auth;
-  final ProviderRef ref;
+  final Ref ref;
 
   UpdateRepository  (
       {

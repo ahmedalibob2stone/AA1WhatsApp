@@ -1,41 +1,26 @@
-
-
-
 import 'dart:io';
-
-import 'package:AA1WhatsApp/common/widgets/Error_Screan.dart';
 import 'package:AA1WhatsApp/features/auth/screan/OTP_screan.dart';
 import 'package:AA1WhatsApp/features/chat%20screan/widgets/profile_screan.dart';
 import 'package:AA1WhatsApp/features/edit_profile/widgets/edit_profile.dart';
-import 'package:AA1WhatsApp/model/group/group.dart';
-import 'package:AA1WhatsApp/model/status/status.dart';
-import 'package:AA1WhatsApp/model/status/status.dart';
-import 'package:AA1WhatsApp/responsive/mobile_screen_Layout.dart';
 import 'package:AA1WhatsApp/features/chat%20screan/screan/mobile_chat_screan.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'constant.dart';
 import 'features/auth/screan/login_screan.dart';
 import 'features/auth/screan/user_information.dart';
 
-import 'features/contact/screan/contacts_screan.dart';
-import 'features/contact/screan/list_contacts.dart';
 import 'features/contact/screan/newpage.dart';
 import 'features/group/screan/select_contacts_group.dart';
 import 'features/group/widgets/add_user_in_group.dart';
 import 'features/status/screan/select_status_screan.dart';
-import 'features/status/screan/select_status_screan.dart';
-import 'features/status/screan/select_status_screan.dart';
+
 import 'features/status/screan/status_screan.dart';
-import 'package:image/image.dart'as img;
-import 'model/status/status.dart';
-import 'model/status/status.dart';
+
 
 class OnGenerateRoutes{
   static Route<dynamic>? route(RouteSettings settings){
-    final ar=settings.arguments;
+
     switch(settings.name){
       case PageConst.LoginScrean:{
         return routeBuilder(Login_Screan());
@@ -194,10 +179,12 @@ class OnGenerateRoutes{
 //MobileChatScrean
 
       default:{
-        NoPageFound();
+        return null;
+
       }
     }
   }
+
 }
 dynamic routeBuilder(Widget child){
   return MaterialPageRoute(builder: (context)=>child);

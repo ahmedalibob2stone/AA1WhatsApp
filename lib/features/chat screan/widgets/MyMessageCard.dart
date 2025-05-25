@@ -116,7 +116,7 @@ class MyMessageCard extends ConsumerWidget {
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withValues(),
             borderRadius: const BorderRadius.all(Radius.circular(5)),
           ),
           child: DisplayTypeofMassage(
@@ -157,7 +157,7 @@ class MyMessageCard extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 5),
       child: CircleAvatar(
-        backgroundColor: Colors.grey.withOpacity(.3),
+        backgroundColor: Colors.grey.withValues(),
         radius: 20,
         backgroundImage: CachedNetworkImageProvider(profileUrl),
       ),

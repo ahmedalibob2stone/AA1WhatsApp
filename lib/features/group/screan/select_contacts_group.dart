@@ -1,19 +1,13 @@
 
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_contacts/contact.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../common/utils/utills.dart';
 import '../../../constant.dart';
 import '../../contact/controller/select_contact_controller.dart';
 import '../controller/group_controller.dart';
-import '../widgets/con_card.dart';
-import '../widgets/group_screan.dart';
 
+import '../widgets/group_screan.dart';
 class CreateGroupScreen  extends ConsumerStatefulWidget {
   const CreateGroupScreen ({Key? key}) : super(key: key);
 
@@ -27,7 +21,7 @@ class _CreateGroupScreenState extends ConsumerState<CreateGroupScreen > {
 
   File?image;
   void selectImage()async {
-    //image=await  PickImage(ImageSource.gallery);
+
 
     image=await  pickImageFromGallery(context);
     setState(() {
@@ -49,10 +43,9 @@ class _CreateGroupScreenState extends ConsumerState<CreateGroupScreen > {
     if(groupcontroller.text.trim().isNotEmpty && image!=null){
       ref.read(groupControllerProvider).createGroup(context, groupcontroller.text.trim(), image!,
           ref.read(selectedGroupContacts));
-      ref.read(selectedGroupContacts.state).update((state) => []);
+
       Navigator.pop(context);
     }
-
   }
 
   @override
@@ -70,9 +63,9 @@ class _CreateGroupScreenState extends ConsumerState<CreateGroupScreen > {
 
     final double appBarTitleFontSize = screenWidth * 0.05; // 5% of screen width
     final double appBarSubtitleFontSize = screenWidth * 0.03; // 3% of screen width
-    final double listTileFontSize = screenWidth * 0.045; // 4.5% of screen width
-    final double listTilePadding = screenWidth * 0.02; // 2% of screen width
-    final double circleAvatarRadius = screenWidth * 0.08; // 8% of screen width
+
+
+
     final double iconSize = screenWidth * 0.07; // 7% of screen width
 
    return  Scaffold(
