@@ -1,93 +1,27 @@
 workflows:
   my-workflow:
     name: Build App
-    instance_type: mac_mini
+    instance_type: linux_x2
     max_build_duration: 60
     environment:
       flutter: 3.27.4
-      xcode: latest
       vars:
-        FLUTTER_ROOT: /opt/flutter
         BASE_URL: "https://your-api.com"
         FIREBASE_AUTH_DOMAIN: $FIREBASE_AUTH_DOMAIN
-        FIREBASE_DATABASE_URL: $FIREBASE_DATABASE_URL
-        FIREBASE_APP_ID: $FIREBASE_APP_ID
-        FIREBASE_MESSAGING_SENDER_ID: $FIREBASE_MESSAGING_SENDER_ID
-        FIREBASE_STORAGE_BUCKET: $FIREBASE_STORAGE_BUCKET
-        FIREBASE_API_KEY: $FIREBASE_API_KEY
-        FIREBASE_PROJECT_ID: $FIREBASE_PROJECT_ID
-        FIREBASE_TOKEN: $FIREBASE_TOKEN
-        GOOGLE_SERVICE_INFO_PLIST: $GOOGLE_SERVICE_INFO_PLIST
-        GOOGLE_SERVICE_JSON: $GOOGLE_SERVICE_JSON
-
-    triggering:
-      events:
-        - push
-        - tag
-        - pull_request
-      branch_patterns:
-        - pattern: master
-          include: true
-          source: true
-
+        ...
     scripts:
+      - name: Get Flutter Dependencies
+        script: flutter pub get
+
       - name: Decode google-services.json
         script: |
           echo $GOOGLE_SERVICE_JSON | base64 --decode > android/app/google-services.json
-          echo "google-services.json file created successfully."
-
-      - name: Decode GoogleService-Info.plist
-        script: |
-          echo $GOOGLE_SERVICE_INFO_PLIST | base64 --decode > ios/Runner/GoogleService-Info.plist
-          echo "GoogleService-Info.plist file created successfully."
 
       - name: Build Android APK
-        script: flutter build apk --release --flavor android-production -t lib/main_prod.dart
-
-      - name: Prepare iOS build (generate Podfile)
-        script: flutter build ios --release
-
-      - name: Remove RunnerTests target from Podfile if present
-        script: |
-          if [ -f ios/Podfile ]; then
-            if grep -q "target 'RunnerTests'" ios/Podfile; then
-              echo "Removing RunnerTests target from Podfile"
-              sed -i '' '/target '\''RunnerTests'\'' do/,/end/d' ios/Podfile
-            else
-              echo "RunnerTests target not found in Podfile"
-            fi
-          else
-            echo "Podfile not found, skipping removal"
-          fi
-
-      - name: Set iOS platform version to 13.0 in Podfile
-        script: |
-          if [ -f ios/Podfile ]; then
-            if grep -q "platform :ios" ios/Podfile; then
-              sed -i '' "s/platform :ios, .*/platform :ios, '13.0'/" ios/Podfile
-            else
-              echo "platform :ios, '13.0'" >> ios/Podfile
-            fi
-            echo "✅ Set iOS deployment target to 13.0"
-          else
-            echo "Podfile not found, skipping platform version setting"
-          fi
-
-      - name: Install specific CocoaPods version (1.15.2)
-        script: |
-          sudo gem uninstall cocoapods -a -x || true
-          sudo gem install cocoapods -v 1.15.2
-
-      - name: Install CocoaPods dependencies
-        script: |
-          cd ios
-          pod install --repo-update
-          cd ..
+        script: flutter build apk --release
 
     artifacts:
-      - build/**/outputs/**/*.aab
       - build/app/outputs/flutter-apk/app-release.apk
-      - build/ios/iphoneos/*.app
 
     publishing:
       email:
