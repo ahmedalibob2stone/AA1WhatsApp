@@ -18,10 +18,10 @@ workflows:
           echo $Google-services.json | base64 --decode > android/app/google-services.json
 
       - name: Build Android APK
-        script: flutter build apk --release
+        script: flutter build apk --Debug -v
 
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - build/app/outputs/flutter-apk/app-Debug.apk
 
     publishing:
       email:
