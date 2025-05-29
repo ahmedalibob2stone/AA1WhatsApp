@@ -17,22 +17,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.5.2"
-  agora_rtm:
-    dependency: transitive
-    description:
-      name: agora_rtm
-      sha256: ab4b77fa722153f9399302693a95acb7b7e9593745ef2aefa34c10555337f139
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.6.0"
-  agora_uikit:
-    dependency: "direct main"
-    description:
-      name: agora_uikit
-      sha256: "2c06a3a12a1aeba6dda84c56bef66091fa6b87b11cc96dbff27c092d0697cef7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.10"
   archive:
     dependency: transitive
     description:
@@ -133,26 +117,26 @@ packages:
     dependency: "direct main"
     description:
       name: cached_network_image
-      sha256: "7c1183e361e5c8b0a0f21a28401eecdbde252441106a9816400dd4c2b2424916"
+      sha256: "28ea9690a8207179c319965c13cd8df184d5ee721ae2ce60f398ced1219cea1f"
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.1"
+    version: "3.3.1"
   cached_network_image_platform_interface:
     dependency: transitive
     description:
       name: cached_network_image_platform_interface
-      sha256: "35814b016e37fbdc91f7ae18c8caf49ba5c88501813f73ce8a07027a395e2829"
+      sha256: "9e90e78ae72caa874a323d78fa6301b3fb8fa7ea76a8f96dc5b5bf79f283bf2f"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.0.0"
   cached_network_image_web:
     dependency: transitive
     description:
       name: cached_network_image_web
-      sha256: "980842f4e8e2535b8dbd3d5ca0b1f0ba66bf61d14cc3a17a9b4788a3685ba062"
+      sha256: "205d6a9f1862de34b93184f22b9d2d94586b2f05c581d546695e3d8f6a805cd7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.1"
+    version: "1.2.0"
   cached_video_player:
     dependency: "direct main"
     description:
@@ -273,22 +257,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  cupertino_progress_bar:
-    dependency: transitive
-    description:
-      name: cupertino_progress_bar
-      sha256: "4962a7c6db9b94d1c19462ad6036fdf20db43defa4114c908a3c4cbef1b3a2e0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
-  cupertino_stepper:
-    dependency: transitive
-    description:
-      name: cupertino_stepper
-      sha256: "124690b8b23db7b43fc6d547688e42a9f3d73c8f46d0b210568e98a04b5645b2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
   custom_clippers:
     dependency: "direct main"
     description:
@@ -305,30 +273,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.4"
-  enough_giphy:
+  extended_image:
     dependency: transitive
     description:
-      name: enough_giphy
-      sha256: "71939f18e6bbe195d8d70f2fef828dea9634258dda429f294bc9d5322fff3ae7"
+      name: extended_image
+      sha256: a6b738d9b8d5513be72c545cc3e9c5c451fbee77c8db3cbec7c32ae85b82fb93
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
-  enough_giphy_flutter:
-    dependency: "direct main"
-    description:
-      name: enough_giphy_flutter
-      sha256: ab6786173371481f6a729a724f789f52846e9098697eb3a279b7f1e561f4e401
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.1"
-  enough_platform_widgets:
+    version: "6.4.1"
+  extended_image_library:
     dependency: transitive
     description:
-      name: enough_platform_widgets
-      sha256: "2f0060cba4dd31ccb135b8d8ef4b66edd2e6fbd067ef8ae019a9511e7eb52026"
+      name: extended_image_library
+      sha256: b94ff57595ef9f6def18199a32c717cf0037d50138cce10107cfa300276dd4e7
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.4"
+    version: "3.4.3"
   fake_async:
     dependency: transitive
     description:
@@ -522,10 +482,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_cache_manager
-      sha256: "400b6592f16a4409a7f2bb929a9a7e38c72cceb8ffb99ee57bbf2cb2cecf8386"
+      sha256: "8207f27539deb83732fdda03e259349046a39a4c767269285f449ade355d54ba"
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.1"
+    version: "3.3.1"
   flutter_contacts:
     dependency: "direct main"
     description:
@@ -558,14 +518,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.14.3"
-  flutter_platform_widgets:
-    dependency: transitive
-    description:
-      name: flutter_platform_widgets
-      sha256: "107d5bc9a167b4e268cba44075ee399b6b2c63d44ede28f7e8c983d7fa4b59be"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.5"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -606,6 +558,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.28.0"
+  flutter_staggered_grid_view:
+    dependency: transitive
+    description:
+      name: flutter_staggered_grid_view
+      sha256: f0b6d8c0fa7b4b444985cdde68492c0138a4fb6fc57a641b24cb234b7ee0f5c4
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -624,6 +584,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.5"
+  giphy_get:
+    dependency: "direct main"
+    description:
+      name: giphy_get
+      sha256: "31a90d19a12100977fe54630505a6459d33b309fa43c36f3fab1cd629e145e8c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.4"
   html:
     dependency: transitive
     description:
@@ -636,10 +604,18 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "2c11f3f94c687ee9bad77c171151672986360b2b001d109814ee7140b2cf261b"
+      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0"
+    version: "0.13.6"
+  http_client_helper:
+    dependency: transitive
+    description:
+      name: http_client_helper
+      sha256: "14c6e756644339f561321dab021215475ba4779aa962466f59ccb3ecf66b36c3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.4"
   http_parser:
     dependency: transitive
     description:
@@ -776,14 +752,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      sha256: cbf8d4b858bb0134ef3ef87841abdf8d63bfc255c266b7bf6b39daa1085c4290
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   logger:
     dependency: transitive
     description:
@@ -824,6 +792,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -968,6 +944,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.2"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: "4abbd070a04e9ddc287673bf5a030c7ca8b685ff70218720abab8b092f53dd84"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.5"
   riverpod:
     dependency: transitive
     description:
@@ -976,14 +960,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
-  rounded_loading_button:
-    dependency: "direct main"
-    description:
-      name: rounded_loading_button
-      sha256: ec4af194330ba688527749059b7c1a3d1ddda6c18794ec4b0696f0cb3b9784ff
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
   rxdart:
     dependency: transitive
     description:

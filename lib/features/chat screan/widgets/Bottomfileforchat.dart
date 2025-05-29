@@ -102,13 +102,22 @@ class _BottomFileforChatState extends ConsumerState<BottomFileforChat> {
       }
     }
 
-    Future<void> selectGIF() async {
-      final gif = await PickGIF(context);
-      if (gif != null) {
-        ref.read(providercontrollerex).sendGIFMessage(
-            context, gif.url, widget.reciverUserId, widget.isGroupChat);
-      }
+  Future<void> selectGIF() async {
+    final gif = await PickGif(context);
+    final gifUrl = gif?.images?.original?.url;
+
+    if (gifUrl != null && gifUrl.isNotEmpty) {
+      ref.read(providercontrollerex).sendGIFMessage(
+        context,
+        gifUrl,
+        widget.reciverUserId,
+        widget.isGroupChat,
+      );
+    } else {
+      ShowSnakBar(context: context, content: 'فشل في الحصول على رابط GIF');
     }
+  }
+
 
     void hideEmoji() {
       setState(() {

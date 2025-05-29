@@ -31,35 +31,5 @@ class _ButtonContainerWidgetState extends State<ButtonContainerWidget> {
   }
 }
 
-class ButtonContainer extends StatefulWidget {
-  final Color? color;
-  final String? text;
-  final VoidCallback? onTapListener;
-  const ButtonContainer({Key? key, this.color, this.text, this.onTapListener}) : super(key: key);
 
-  @override
-  State<ButtonContainerWidget> createState() => _ButtonContainerWidgetState();
-}
 
-class ButtonContainerState extends State<ButtonContainerWidget> {
-  bool isLoading = false;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.onTapListener,
-      child: Container(
-        width: 322,
-        height: 40,
-        decoration: BoxDecoration(
-            color: widget.color,
-            borderRadius: BorderRadius.circular(20)
-        ),
-        child: isLoading
-            ? CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-        )
-            : Text('Sign In'),
-      ),
-    );
-  }
-}

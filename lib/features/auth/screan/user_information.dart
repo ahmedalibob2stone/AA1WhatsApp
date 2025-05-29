@@ -10,7 +10,6 @@ import '../../../common/widgets/Error_Screan.dart';
 import '../../../common/widgets/Loeading.dart';
 import '../../../constant.dart';
 import '../../../responsive/mobile_screen_Layout.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../viewmodel/auth_getdate.dart';
 
@@ -25,7 +24,6 @@ class _User_InformationState extends ConsumerState<User_Information> {
 
   final TextEditingController name = TextEditingController();
   final TextEditingController statu = TextEditingController();
-  final RoundedLoadingButtonController controller=RoundedLoadingButtonController();
   File? image;
   bool isLoading = false;
   bool _validatestatu = true;
@@ -55,7 +53,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
     if (_validatestatu && Name.isNotEmpty && image != null) {
       // تفعيل حالة التحميل
       ref.read(UserViewModel.notifier).setLoading(true);
-      controller.start();
+     // controller.start();
 
       try {
         // حفظ بيانات المستخدم في Firebase
@@ -63,7 +61,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
             context: context, name: Name, profile: image, statu: Statu);
 
         // إظهار النجاح في الزر
-        controller.success();
+       // controller.success();
 
         // الانتقال إلى الواجهة الأخرى بعد نجاح العملية
 
@@ -72,7 +70,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
         ref.read(UserViewModel.notifier).setError(e.toString());
 
         // إعادة تعيين الزر إلى حالته الافتراضية بعد الخطأ
-        controller.error();
+        //controller.error();
 
         // عرض رسالة الخطأ باستخدام Snackbar
         ScaffoldMessenger.of(context).showSnackBar(
@@ -84,7 +82,7 @@ class _User_InformationState extends ConsumerState<User_Information> {
       }
     } else {
       // إعادة تعيين الزر وعرض خطأ إذا كان الإدخال غير صالح
-      controller.reset();
+    //  controller.reset();
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('All fields are required!')),
@@ -230,9 +228,9 @@ class _User_InformationState extends ConsumerState<User_Information> {
                         : ButtonContainerWidget(
                       color: kkPrimaryColor,
                       text: 'Next',
-                      onTapListener: name.text.isNotEmpty && statu.text.isNotEmpty && image != null
-                          ? UploadDataToFirestore
-                          : Continues,
+                    //  onTapListener: name.text.isNotEmpty && statu.text.isNotEmpty && image != null
+                      //    ? UploadDataToFirestore
+                        //  : Continues,
                     ),
 
                   ],

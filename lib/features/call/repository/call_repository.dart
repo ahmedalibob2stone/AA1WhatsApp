@@ -49,7 +49,7 @@ class CallRepository {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              CallScrean(
+              CallScreen(
                 channelId: senderCallData.callId,
                 call: senderCallData,
                 isGroupChat: false,
@@ -87,7 +87,7 @@ class CallRepository {
         context,
         MaterialPageRoute(
           builder: (context) =>
-              CallScrean(
+              CallScreen(
                 channelId: senderCallData.callId,
                 call: senderCallData,
                 isGroupChat: true,

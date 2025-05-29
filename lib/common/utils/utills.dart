@@ -1,8 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:giphy_get/giphy_get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
+
 PickImage(ImageSource source)async{
   final ImagePicker _ImagePicker=ImagePicker();
 
@@ -64,14 +64,22 @@ Future<File?> pickVideoFromGallery(BuildContext context) async {
   }
   return Vidoe;
 }
- Future<GiphyGif?> PickGIF(BuildContext context) async{
-   GiphyGif? gif;
-  try{
-    gif=await Giphy.getGif(context:context,apiKey:'UuTDSoXi6i1aRcD17AQOb67pjT9bu623');
-  }catch(e){
-    ShowSnakBar(context: context, content: e.toString());
+
+
+
+Future<GiphyGif?> PickGif(BuildContext context) async {
+  try {
+    final gif = await GiphyGet.getGif(
+      context: context,
+      apiKey: 'UuTDSoXi6i1aRcD17AQOb67pjT9bu623',
+      lang: GiphyLanguage.english,
+    );
+    return gif;
+  } catch (e) {
+    ShowSnakBar(context: context, content: 'حدث خطأ أثناء اختيار GIF: $e');
+    return null;
   }
-  return gif;
 }
 
-//UuTDSoXi6i1aRcD17AQOb67pjT9bu623
+
+

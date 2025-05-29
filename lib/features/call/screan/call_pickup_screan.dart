@@ -61,7 +61,7 @@ class CallPickUp extends ConsumerWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CallScrean(
+                                builder: (context) => CallScreen(
                                   channelId: call.callId,
                                   call: call,
                                   isGroupChat: false,
