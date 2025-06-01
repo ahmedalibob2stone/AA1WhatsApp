@@ -171,8 +171,11 @@ class _AddMessageForStatusState extends ConsumerState<AddMessageForStatus> {
                       });
                     },
                     config: Config(
-                      columns: 7,
-                      emojiSizeMax: 32.0,
+                      emojiViewConfig: EmojiViewConfig(
+                        emojiSizeMax: 32,
+                      ),
+
+
 
                     ),
                   ),
