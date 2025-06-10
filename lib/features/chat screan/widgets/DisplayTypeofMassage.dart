@@ -29,7 +29,7 @@ class DisplayTypeofMassage extends StatelessWidget {
         return Container(
           width: MediaQuery.of(context).size.width * 0.66,
           height: MediaQuery.of(context).size.height * 0.35,
-          child: VideoPlayer(videoUrl: message),
+          child: CustomVideoPlayer(videoUrl: message),
         );
 
       case EnumData.audio:

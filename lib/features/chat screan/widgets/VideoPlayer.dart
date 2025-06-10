@@ -1,25 +1,25 @@
-import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
-class VideoPlayer extends StatefulWidget {
-  const VideoPlayer({Key? key, required this.videoUrl}) : super(key: key);
+class CustomVideoPlayer extends StatefulWidget {
+  const CustomVideoPlayer({Key? key, required this.videoUrl}) : super(key: key);
 
   final String videoUrl;
 
   @override
-  State<VideoPlayer> createState() => _VideoPlayerState();
+  State<CustomVideoPlayer> createState() => _CustomVideoPlayerState();
 }
 
-class _VideoPlayerState extends State<VideoPlayer> {
-  late CachedVideoPlayerController _videoPlayerController;
+class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
+  late VideoPlayerController _videoPlayerController;
   bool _isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = CachedVideoPlayerController.network(widget.videoUrl)
+    _videoPlayerController = VideoPlayerController.network(widget.videoUrl)
       ..initialize().then((_) {
-        setState(() {}); // Ensures that the UI is updated after initialization.
+        setState(() {});
         _videoPlayerController.setVolume(1);
       });
   }
@@ -51,9 +51,9 @@ class _VideoPlayerState extends State<VideoPlayer> {
         alignment: Alignment.center,
         children: [
           if (_videoPlayerController.value.isInitialized)
-            CachedVideoPlayer(_videoPlayerController)
+            VideoPlayer(_videoPlayerController)
           else
-            const Center(child: CircularProgressIndicator()), // Loading indicator
+            const Center(child: CircularProgressIndicator()),
 
           GestureDetector(
             onTap: _togglePlayPause,
@@ -63,7 +63,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
               child: Icon(
                 _isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
                 size: 60,
-                color: Colors.white.withValues(),
+                color: Colors.white.withOpacity(0.7),
               ),
             ),
           ),

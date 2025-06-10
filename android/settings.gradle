@@ -1,6 +1,8 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        maven { url "https://maven.aliyun.com/repository/public" } // بديل صيني سريع
+        maven { url "https://maven-central.storage.googleapis.com" } // بديل من جوجل
         google()
         mavenCentral()
     }
